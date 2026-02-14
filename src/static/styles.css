@@ -64,6 +64,77 @@ header {
   align-items: center;
 }
 
+.announcement-section {
+  margin-bottom: 15px;
+  padding: 18px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #fff3e0, #ffffff 65%);
+  border: 1px solid rgba(255, 111, 0, 0.2);
+  box-shadow: 0 10px 24px rgba(255, 111, 0, 0.12);
+  font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
+}
+
+.announcement-header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 15px;
+}
+
+.announcement-kicker {
+  text-transform: uppercase;
+  letter-spacing: 1.8px;
+  font-size: 0.7rem;
+  color: var(--secondary-dark);
+  font-weight: 600;
+}
+
+.announcement-subtitle {
+  color: #6d4c41;
+  font-size: 0.85rem;
+}
+
+.announcement-list {
+  display: grid;
+  gap: 12px;
+}
+
+.announcement-card {
+  display: grid;
+  gap: 8px;
+  padding: 12px 14px;
+  background: #ffffff;
+  border-radius: 8px;
+  border: 1px solid rgba(26, 35, 126, 0.08);
+  box-shadow: 0 6px 14px rgba(26, 35, 126, 0.08);
+}
+
+.announcement-card h4 {
+  font-size: 1rem;
+  color: var(--primary-dark);
+}
+
+.announcement-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 0.75rem;
+  color: #5d4037;
+}
+
+.announcement-chip {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(255, 111, 0, 0.15);
+  color: var(--secondary-dark);
+  font-weight: 600;
+}
+
+.announcement-empty {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
 header h1 {
   margin-bottom: 5px;
   font-size: 1.6rem;
@@ -298,6 +369,16 @@ button {
   transition: background-color 0.2s;
 }
 
+.cancel-btn {
+  background-color: #f1f1f1;
+  color: #333333;
+}
+
+.confirm-btn {
+  background-color: #dc3545;
+  color: #ffffff;
+}
+
 /* Tooltip styles */
 .tooltip {
   position: relative;
@@ -432,6 +513,90 @@ button {
   transform: translateY(0);
 }
 
+.announcement-modal-content {
+  max-width: 900px;
+  width: min(92vw, 900px);
+}
+
+.announcement-modal-header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 15px;
+}
+
+.announcement-modal-header h3 {
+  color: var(--primary-dark);
+  font-size: 1.3rem;
+}
+
+.announcement-modal-body {
+  display: grid;
+  gap: 16px;
+}
+
+.announcement-panel {
+  background: #fdf8f2;
+  border: 1px solid rgba(255, 111, 0, 0.2);
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.announcement-panel h4 {
+  margin-bottom: 10px;
+  color: var(--primary);
+}
+
+.announcement-items {
+  display: grid;
+  gap: 10px;
+}
+
+.announcement-item {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: #ffffff;
+  display: grid;
+  gap: 6px;
+}
+
+.announcement-item-meta {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.announcement-item-actions {
+  display: flex;
+  gap: 6px;
+  justify-content: flex-end;
+}
+
+.announcement-item-actions button {
+  padding: 4px 10px;
+  font-size: 0.75rem;
+}
+
+.announcement-item.expired {
+  opacity: 0.65;
+  border-style: dashed;
+}
+
+.form-row {
+  display: grid;
+  gap: 10px;
+}
+
+.announcement-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 10px;
+}
+
 .close-modal,
 .close-login-modal {
   position: absolute;
@@ -443,12 +608,32 @@ button {
   line-height: 1;
 }
 
+.close-announcements-modal {
+  position: absolute;
+  right: 12px;
+  top: 8px;
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--text-secondary);
+  line-height: 1;
+}
+
 /* Login modal specific styling */
 #login-modal .modal-content h3 {
   color: var(--primary);
   font-size: 1.2rem;
   margin-bottom: 15px;
   text-align: center;
+}
+
+@media (min-width: 900px) {
+  .announcement-modal-body {
+    grid-template-columns: 1.1fr 1fr;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 /* Hidden class - critical for showing/hiding elements */
@@ -617,6 +802,10 @@ footer {
   position: absolute;
   top: 10px;
   right: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
 }
 
 #user-status {
@@ -644,6 +833,10 @@ footer {
   padding: 4px 12px;
   font-size: 0.85rem;
   transition: background-color 0.2s;
+}
+
+#manage-announcements-button {
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .icon-button:hover {
