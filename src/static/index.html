@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mergington High School Activities</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="icon"
       type="image/svg+xml"
@@ -22,6 +28,10 @@
       <h1>Mergington High School</h1>
       <h2>Extracurricular Activities</h2>
       <div id="user-controls">
+        <button id="manage-announcements-button" class="icon-button hidden">
+          <span class="user-icon">📣</span>
+          <span>Announcements</span>
+        </button>
         <div id="user-status">
           <button id="login-button" class="icon-button">
             <span class="user-icon">👤</span>
@@ -36,6 +46,16 @@
     </header>
 
     <main>
+      <section id="announcements-section" class="announcement-section hidden">
+        <div class="announcement-header">
+          <div>
+            <p class="announcement-kicker">Campus Updates</p>
+            <h3>Announcements</h3>
+          </div>
+          <span class="announcement-subtitle">Stay up to date with the latest notices.</span>
+        </div>
+        <div id="announcements-list" class="announcement-list"></div>
+      </section>
       <section id="activities-container">
         <div class="main-content-layout">
           <!-- Left Sidebar for Filters -->
@@ -137,6 +157,53 @@
           <button type="submit">Login</button>
         </form>
         <div id="login-message" class="hidden message"></div>
+      </div>
+    </div>
+
+    <!-- Announcements Modal -->
+    <div id="announcements-modal" class="modal hidden">
+      <div class="modal-content announcement-modal-content">
+        <span class="close-announcements-modal">&times;</span>
+        <div class="announcement-modal-header">
+          <h3>Manage Announcements</h3>
+          <p>Keep families informed with scheduled updates.</p>
+        </div>
+        <div class="announcement-modal-body">
+          <div class="announcement-panel">
+            <h4>Current Announcements</h4>
+            <div id="announcement-items" class="announcement-items"></div>
+          </div>
+          <div class="announcement-panel">
+            <h4 id="announcement-form-title">Add Announcement</h4>
+            <form id="announcement-form">
+              <div class="form-group">
+                <label for="announcement-title">Title</label>
+                <input type="text" id="announcement-title" required maxlength="120" />
+              </div>
+              <div class="form-group">
+                <label for="announcement-body">Message</label>
+                <textarea id="announcement-body" rows="4" required maxlength="800"></textarea>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="announcement-start">Start date (optional)</label>
+                  <input type="date" id="announcement-start" />
+                </div>
+                <div class="form-group">
+                  <label for="announcement-end">Expiration date</label>
+                  <input type="date" id="announcement-end" required />
+                </div>
+              </div>
+              <div class="announcement-form-actions">
+                <button type="button" id="announcement-cancel" class="cancel-btn hidden">
+                  Cancel Edit
+                </button>
+                <button type="submit" id="announcement-submit">Save Announcement</button>
+              </div>
+            </form>
+            <div id="announcement-message" class="hidden message"></div>
+          </div>
+        </div>
       </div>
     </div>
 
